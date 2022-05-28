@@ -8,7 +8,7 @@ const MainCategory = ()=>{
                 <p>This is the female category</p>
             </div>
             <div className="main-category_block main-category_block-male">
-                <p>This is the male category</p>
+                <p>This is the male categoryy</p>
             </div>
         </div>
     )

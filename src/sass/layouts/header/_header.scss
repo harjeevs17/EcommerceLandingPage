@@ -1,0 +1,22 @@
+@import "../../abstracts/mixins";
+@import "../../abstracts/variable";
+.header{
+    height:3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $primary-color-dark;
+    color:$primary-heading;
+    img{
+        height:100%;
+    }
+    ul{
+        display: flex;
+        text-decoration: none;
+        flex-direction: row;
+        justify-content: center;
+        @include displayFlexJustifyAlignCenter;
+        list-style-type: none;
+        gap:2rem;
+    }
+}

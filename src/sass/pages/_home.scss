@@ -1,0 +1,9 @@
+@import "../layouts/header/header";
+@import "../components/banner/banner";
+@import "../components/section/section-seperator";
+@import "../components/productBox/product";
+@import "../layouts/productCarousel/productCarousel";
+*{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}

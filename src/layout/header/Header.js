@@ -8,7 +8,7 @@ const Header = ()=>{
             <ul>
                 <li>Home</li>
                 <li>Shop</li>
-                <li>Contact</li>
+                <li>About</li>
             </ul>
             <div className="btn-containers">
                 <SecondaryButton title="Sign Up"/>

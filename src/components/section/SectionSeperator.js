@@ -1,7 +1,7 @@
-const SectionSeperator = ()=>{
+const SectionSeperator = (props)=>{
     return(
         <div className="section-seperator">
-            <p>Section</p>
+            <p>{props.title}</p>
         </div>
     )
 }

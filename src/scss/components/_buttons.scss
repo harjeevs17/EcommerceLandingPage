@@ -1,0 +1,16 @@
+.btn{
+    width: 5rem;
+    height: 2rem;
+    margin: 5px;
+    border-radius: 0.3rem;
+}
+.primaryBtn{
+    background-color: white;
+    border:1px solid $primary-color;
+    color: $seconday-color;
+}
+.secondaryBtn{
+    background-color: $primary-color;
+    color:white;
+    border:1px solid $seconday-color;
+}

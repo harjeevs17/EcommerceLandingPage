@@ -1,12 +1,12 @@
 import Product from "../../components/productBox/Product"
 
-const ProductCarousel = ()=>{
+const ProductCarousel = (props)=>{
     return (
         <div className="productCarousel">
-            <Product/>
-            <Product/>
-            <Product/>
-            <Product/>
+            <Product sex={props.sex}/>
+            <Product sex={props.sex}/>
+            <Product sex={props.sex}/>
+            <Product sex={props.sex}/>
         </div>
     )
 }

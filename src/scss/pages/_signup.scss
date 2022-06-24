@@ -1,0 +1,16 @@
+.onboardingBox{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   height:100vh;
+   form{
+        display: flex;
+        flex-direction: column;
+        input{
+            margin:10px;
+            height:35px;
+            width:350px;
+        }
+   }
+}

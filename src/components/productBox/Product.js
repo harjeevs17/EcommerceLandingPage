@@ -1,8 +1,9 @@
-const Product = ()=>{
+import Female from "../../assets/female.jpg"
+import Male from "../../assets/male.jpg"
+const Product = (props)=>{
     return(
         <div className="product-box">
-            <p>this is the product box</p>
-            <p>this is the price</p>
+            {props.sex=="male"?<img src={Male}/>:<img src={Female}/>}
         </div>
     )
 }

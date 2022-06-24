@@ -10,12 +10,14 @@ const Home = ()=>{
         <div className="home">
             <Header/>
             <Banner/>
-            <SectionSeperator/>
+            <SectionSeperator title="Latest Releases"/>
             <MainCategory/>
-            <SectionSeperator/>
-            <ProductCarousel/>
-            <SectionSeperator/>
-            <ProductCarousel/>
+            <SectionSeperator title="Men" />
+            <ProductCarousel sex="male"/>
+            <SectionSeperator title="Women"/>
+            <ProductCarousel sex="female"/>
+            <SectionSeperator title="Best Selling"/>
+            <ProductCarousel sex="female"/>
             <Footer/>
         </div>
        

@@ -1,4 +1,5 @@
 import PrimaryButton from "../../components/form/buttons/PrimaryButton"
+import SecondaryButton from "../../components/form/buttons/Secondarybutton";
 
 const Header = ()=>{
     return(
@@ -10,8 +11,8 @@ const Header = ()=>{
                 <li>Contact</li>
             </ul>
             <div className="btn-containers">
-                <PrimaryButton/>
-                <PrimaryButton/>
+                <SecondaryButton title="Sign Up"/>
+                <PrimaryButton title="Sign In"/>
             </div>
         </div>
     )

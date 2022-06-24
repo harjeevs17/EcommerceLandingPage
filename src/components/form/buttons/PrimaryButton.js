@@ -1,6 +1,6 @@
-const PrimaryButton = ()=>{
+const PrimaryButton = (props)=>{
     return (
-        <input type="button" value="Button"/>
+        <input className="btn primaryBtn" type="button" value={props.title}/>
     )
 }
 export default PrimaryButton;

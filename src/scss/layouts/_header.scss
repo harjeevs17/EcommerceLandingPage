@@ -18,3 +18,19 @@
         gap:2rem;
     }
 }
+@media (max-width: 480px) {
+    .btn-containers{
+        display:none;
+    }
+    .btn-containers-mobile{
+        display: block;
+    }
+ }
+ @media (min-width: 481px) {
+    .btn-containers{
+        display:block;
+    }
+    .btn-containers-mobile{
+        display: none;
+    }
+ }

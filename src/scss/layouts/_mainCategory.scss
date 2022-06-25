@@ -14,3 +14,13 @@
    }
    
 }
+@media (max-width: 900px) {
+   .main-category{
+      height: 12rem;
+   }
+   .main-category_block{
+      width: 100%;
+      margin:0.3rem !important;
+      text-align: center;
+   }
+}

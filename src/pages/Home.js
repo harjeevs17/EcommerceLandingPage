@@ -1,3 +1,5 @@
+import { useContext, useEffect } from "react";
+import { UserContext } from "../App";
 import Banner from "../components/banner/Banner";
 import SectionSeperator from "../components/section/SectionSeperator";
 import MainCategory from "../layout/category/MainCategory";
@@ -6,10 +8,13 @@ import Header from "../layout/header/Header";
 import ProductCarousel from "../layout/productCarousel/ProductCarousel";
 
 const Home = ()=>{
+    const { state, dispatch } = useContext(UserContext);
+
     return(
         <div className="home">
             <Header/>
             <Banner/>
+            <p>{!state?"":state.name}</p>
             <SectionSeperator title="Latest Releases"/>
             <MainCategory/>
             <SectionSeperator title="Men" />
@@ -18,10 +23,7 @@ const Home = ()=>{
             <ProductCarousel sex="female"/>
             <SectionSeperator title="Best Selling"/>
             <ProductCarousel sex="female"/>
-            <Footer/>
         </div>
-       
     )
 }
-
 export default Home;

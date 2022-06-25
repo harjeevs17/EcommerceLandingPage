@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans&family=Roboto+Flex:opsz@8..144&family=Share+Tech+Mono&display=swap');
 @import 'utilities/variables';
 @import 'utilities/functions';
 @import 'utilities/mixins';
@@ -13,4 +14,8 @@
 
 @import 'pages/home';
 @import 'pages/signup';
+
+body{
+    font-family: 'Anton', sans-serif;
+}
 

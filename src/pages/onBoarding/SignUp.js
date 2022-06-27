@@ -1,9 +1,15 @@
-import { useState } from "react";
-import { signInCall, signUpCall } from "../api/api";
-import SecondaryButton from "../components/form/buttons/Secondarybutton";
-import Header from "../layout/header/Header";
+import { useContext, useState } from "react";
+import { signUpCall } from "../../api/api";
+import { UserContext } from "../../App";
+import SecondaryButton from "../../components/form/buttons/Secondarybutton";
 
-const SignUp = ()=>{
+const SignUp = (props)=>{
+    const [email,setEmail] = useState(false);
+    const [password,setPassword] = useState(false);
+    const [userData,setUserData] = useState({});
+    const { state, dispatch } = useContext(UserContext);
+    const [name,setname] = useState(false);
+    const [phone,setPhone] = useState(false);
     const signUp = (event)=>{
         if(!name || !email || !password || !phone){
             alert("Enter all fields")
@@ -19,13 +25,7 @@ const SignUp = ()=>{
             fetchAPI();
         }
     }
-    const [name,setname] = useState(false);
-    const [email,setEmail] = useState(false);
-    const [password,setPassword] = useState(false);
-    const [phone,setPhone] = useState(false);
-    return(
-        <>
-        <Header/>
+    return (
         <div className="onboardingBox">
             <form>
                 <input type="text" name="name" placeholder="name" onChange={(e)=>setname(e.target.value)}/>
@@ -35,7 +35,6 @@ const SignUp = ()=>{
                 <SecondaryButton title="Sign Up" methodCall={signUp}/>
             </form>
         </div>
-        </>
-    )   
+    )
 }
 export default SignUp;

@@ -1,15 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signInCall } from "../api/api";
-import SecondaryButton from "../components/form/buttons/Secondarybutton";
-import { UserContext } from "../App";
-import Header from "../layout/header/Header";
+import { signInCall } from "../../api/api";
+import { UserContext } from "../../App";
+import SecondaryButton from "../../components/form/buttons/Secondarybutton";
 
-const SignIn = ()=>{
+const Login = ()=>{
     const [email,setEmail] = useState(false);
     const [password,setPassword] = useState(false);
     const [userData,setUserData] = useState({});
     const { state, dispatch } = useContext(UserContext);
+    const [name,setname] = useState(false);
+    const [phone,setPhone] = useState(false);
+   
 
     let history = useNavigate();
     useEffect(()=>{
@@ -36,8 +38,6 @@ const SignIn = ()=>{
         }
     }
     return(
-        <>
-        <Header/>
         <div className="onboardingBox">
             <form>
                 <input type="text" name="email" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
@@ -45,7 +45,6 @@ const SignIn = ()=>{
                 <SecondaryButton title="Sign In" methodCall={signIn}/>
             </form>
         </div>
-        </>
     )
 }
-export default SignIn;
+export default Login;

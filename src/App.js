@@ -1,8 +1,7 @@
 import { Route, Router,Routes,BrowserRouter,useNavigate } from 'react-router-dom';
 import logo from './logo.svg';
 import Home from './pages/Home';
-import SignUp from './pages/SignUp';
-import SignIn from './pages/SignIn';
+import Onboarding from './pages/Onboarding';
 import { reducer, initialState } from "./reducers/userReducer";
 import './scss/main.scss';
 import { createContext, useContext, useEffect, useReducer } from 'react';
@@ -21,8 +20,7 @@ const Routing = ()=>{
   return (
     <Routes>
           <Route  path="/" element={<Home/>} />
-          <Route  path="/signin" element={<SignIn/>} />
-          <Route  path="/signup" element={<SignUp/>} />
+          <Route  path="/signin" element={<Onboarding/>} />
       </Routes>
   )
 }

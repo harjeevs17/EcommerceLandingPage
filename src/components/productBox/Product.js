@@ -3,7 +3,9 @@ import Male from "../../assets/male.jpg"
 const Product = (props)=>{
     return(
         <div className="product-box">
-            {props.sex=="male"?<img src={Male}/>:<img src={Female}/>}
+            <img src={props.data.image}/>
+            <p>{props.data.title}</p>
+            <p>{props.data.price}</p>
         </div>
     )
 }

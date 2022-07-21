@@ -5,6 +5,7 @@ import Onboarding from './pages/Onboarding';
 import { reducer, initialState } from "./reducers/userReducer";
 import './scss/main.scss';
 import { createContext, useContext, useEffect, useReducer } from 'react';
+import Admin from './pages/admin/Admin';
 export const UserContext = createContext();
 const Routing = ()=>{
   let history = useNavigate();
@@ -21,6 +22,7 @@ const Routing = ()=>{
     <Routes>
           <Route  path="/" element={<Home/>} />
           <Route  path="/signin" element={<Onboarding/>} />
+          <Route  path="/admin" element={<Admin/>} />
       </Routes>
   )
 }

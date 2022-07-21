@@ -8,6 +8,8 @@ import Login from "./onBoarding/Login";
 import SignUp from "./onBoarding/SignUp";
 
 const SignIn = ()=>{
+    let history = useNavigate();
+    const { state, dispatch } = useContext(UserContext);
     const [screenCheck,setScreenCheck] = useState(true); // true = sign Up screen && false == signIn screen
     const setScreenState = ()=>{
         if(!screenCheck){
@@ -16,6 +18,15 @@ const SignIn = ()=>{
             setScreenCheck(false)
         }
     }
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (user) {
+            dispatch({ type: "USER", payload: user });
+            history("/", { replace: true });
+        } else {
+          history("/signIn", { replace: true });
+        }
+    }, [dispatch, history]);    
     return(
         <>
         <Header methodCall = {setScreenState}/>

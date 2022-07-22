@@ -6,6 +6,7 @@ import { reducer, initialState } from "./reducers/userReducer";
 import './scss/main.scss';
 import { createContext, useContext, useEffect, useReducer } from 'react';
 import Admin from './pages/admin/Admin';
+import ProductDetail from './pages/productDetail/ProductDetail';
 export const UserContext = createContext();
 const Routing = ()=>{
   let history = useNavigate();
@@ -23,6 +24,7 @@ const Routing = ()=>{
           <Route  path="/" element={<Home/>} />
           <Route  path="/signin" element={<Onboarding/>} />
           <Route  path="/admin" element={<Admin/>} />
+          <Route  path="/productDetail/:id" element={<ProductDetail/>} />
       </Routes>
   )
 }

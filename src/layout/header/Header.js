@@ -1,6 +1,6 @@
 import PrimaryButton from "../../components/form/buttons/PrimaryButton"
 import SecondaryButton from "../../components/form/buttons/Secondarybutton";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { UserContext } from "../../App";
 import { useContext } from "react";
 import { useNavigate , Link } from 'react-router-dom';
@@ -23,6 +23,7 @@ const Header = (props)=>{
                 <li>Admin</li>
             </ul>
             <div className="btn-containers">
+                <AiOutlineShoppingCart/><span>{state.cart.length}</span>
                 <PrimaryButton title="Sign Out" methodCall={logOut}/>
             </div>
         </div>

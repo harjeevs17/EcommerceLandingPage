@@ -41,22 +41,23 @@ const Header = (props)=>{
                     <AiOutlineShoppingCart onClick={handleClick} style={{cursor:"pointer"}}/> 
                 </Badge>
                 <Popover
-                    anchorPosition={{ top: 0, left: 1155 }}
+                    anchorPosition={{ top: 0, right: 0 }}
                     anchorReference="anchorPosition"
                     id={id}
                     open={open}
                     onClose={handleClose}
-                    anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-                    targetOrigin={{horizontal: 'left', vertical: 'top'}}
+                    anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
+                    targetOrigin={{horizontal: 'right', vertical: 'top'}}
                 >
                 <div>
-                    <p>fdsfsdfdsfdsfsdf</p>
-                    <p>fdsfsdfdsfdsfsdf</p>
-                    <p>fdsfsdfdsfdsfsdf</p>
-                    <p>fdsfsdfdsfdsfsdf</p>
-                    <p>fdsfsdfdsfdsfsdf</p>
-                    <p>fdsfsdfdsfdsfsdf</p>
-                    <p>fdsfsdfdsfdsfsdf</p>
+                    {state.cart.length!=0 ? <div>
+                        <p>{state.cart.map((item)=>{
+                            return <div style={{display:"flex",flexDirection:"row",margin:"10px",alignItems:"center"}}>
+                                <img style={{height:"100px"}} src={item.data.image}/>
+                                <p style={{textAlign:"center"}}>{item.data.title}</p>
+                            </div>
+                        })}</p>
+                    </div>:null}
                 </div>
                 </Popover>
                     <PrimaryButton title="Sign Out" methodCall={logOut}/>

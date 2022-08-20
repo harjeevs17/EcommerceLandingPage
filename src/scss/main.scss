@@ -14,8 +14,17 @@
 
 @import 'pages/home';
 @import 'pages/signup';
+@import 'pages/cart';
 
 body{
     font-family: 'Anton', sans-serif;
+    height: 100%;
+}
+
+#root{
+    height: 100%;
+}
+#root > div{
+    height: 100%;
 }
 

@@ -7,6 +7,7 @@ import './scss/main.scss';
 import { createContext, useContext, useEffect, useReducer } from 'react';
 import Admin from './pages/admin/Admin';
 import ProductDetail from './pages/productDetail/ProductDetail';
+import Cart from './pages/cart/Cart';
 export const UserContext = createContext();
 const Routing = ()=>{
   let history = useNavigate();
@@ -26,6 +27,7 @@ const Routing = ()=>{
           <Route  path="/" element={<Home/>} />
           <Route  path="/signin" element={<Onboarding/>} />
           <Route  path="/admin" element={<Admin/>} />
+          <Route  path="/cart" element={<Cart/>} />
           <Route  path="/productDetail/:id" element={<ProductDetail/>} />
       </Routes>
   )

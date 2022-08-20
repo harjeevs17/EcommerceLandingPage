@@ -13,7 +13,7 @@ const Header = (props)=>{
         dispatch({ type: "CLEAR" });
         history("/signIn", { replace: true });
     }
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorel, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
@@ -23,7 +23,7 @@ const Header = (props)=>{
       setAnchorEl(null);
     };
   
-    const open = Boolean(anchorEl);
+    const open = Boolean(anchorel);
     const id = open ? 'simple-popover' : undefined;
     const WhenLoggedIn = ()=>{
         return(
@@ -37,12 +37,10 @@ const Header = (props)=>{
                     <li>Admin</li>
                 </ul>
                 <div className="btn-containers">
-                <Badge  anchorEl={anchorEl} badgeContent={state.cart.length} color="primary">       
+                <Badge  anchorel={anchorel} badgeContent={state.cart.length} color="primary">       
                     <AiOutlineShoppingCart onClick={handleClick} style={{cursor:"pointer"}}/> 
                 </Badge>
                 <Popover
-                    anchorPosition={{ top: 0, right: 0 }}
-                    anchorReference="anchorPosition"
                     id={id}
                     open={open}
                     onClose={handleClose}
@@ -50,14 +48,7 @@ const Header = (props)=>{
                     targetOrigin={{horizontal: 'right', vertical: 'top'}}
                 >
                 <div>
-                    {state.cart.length!=0 ? <div>
-                        <p>{state.cart.map((item)=>{
-                            return <div style={{display:"flex",flexDirection:"row",margin:"10px",alignItems:"center"}}>
-                                <img style={{height:"100px"}} src={item.data.image}/>
-                                <p style={{textAlign:"center"}}>{item.data.title}</p>
-                            </div>
-                        })}</p>
-                    </div>:null}
+                   
                 </div>
                 </Popover>
                     <PrimaryButton title="Sign Out" methodCall={logOut}/>
@@ -84,3 +75,15 @@ const Header = (props)=>{
     )
 }
 export default Header;
+
+/*
+ {state.cart.length!=0 ? <div>
+                        <p>{state.cart.map((item)=>{
+                            return item.data.image == undefined || item.data.image == undefined ? <div style={{display:"flex",flexDirection:"row",margin:"10px",alignItems:"center"}}>
+                            <img style={{height:"100px"}} src={item.data.image}/>
+                            <p style={{textAlign:"center"}}>{item.data.title}</p>
+                        </div>:""
+                        })}</p>
+                        <input type="button" value="cart" style={{width:"100%"}}/>
+                    </div>:null}
+*/

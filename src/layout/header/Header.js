@@ -3,12 +3,12 @@ import SecondaryButton from "../../components/form/buttons/Secondarybutton";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { UserContext } from "../../App";
 import React, { useContext } from "react";
-import { useNavigate , Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Badge, Button, Popover, Typography } from "@mui/material";
-const Header = (props)=>{
+const Header = (props) => {
     const { state, dispatch } = useContext(UserContext);
     let history = useNavigate();
-    const logOut = ()=>{
+    const logOut = () => {
         localStorage.clear();
         dispatch({ type: "CLEAR" });
         history("/signIn", { replace: true });
@@ -16,20 +16,20 @@ const Header = (props)=>{
     const [anchorel, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
+        setAnchorEl(event.currentTarget);
     };
-  
+
     const handleClose = () => {
-      setAnchorEl(null);
+        setAnchorEl(null);
     };
-  
+
     const open = Boolean(anchorel);
     const id = open ? 'simple-popover' : undefined;
-    const WhenLoggedIn = ()=>{
-        return(
-          
+    const WhenLoggedIn = () => {
+        return (
+
             <div className="header">
-                <img src="https://www.tailorbrands.com/wp-content/uploads/2020/07/mcdonalds-logo.jpg"/>
+                <Link to={"/"}><img src="https://www.freepnglogos.com/uploads/pepsi-png-logo/pepsi-logo-pepsi-symbol-meaning-history-png-logo-3.png" /></Link>
                 <ul>
                     <li>Home</li>
                     <li>Shop</li>
@@ -37,41 +37,31 @@ const Header = (props)=>{
                     <li>Admin</li>
                 </ul>
                 <div className="btn-containers">
-                <Badge  anchorel={anchorel} badgeContent={state.cart.length} color="primary">       
-                    <AiOutlineShoppingCart onClick={handleClick} style={{cursor:"pointer"}}/> 
-                </Badge>
-                <Popover
-                    id={id}
-                    open={open}
-                    onClose={handleClose}
-                    anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
-                    targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                >
-                <div>
-                   
+                    <Badge anchorel={anchorel} badgeContent={state.cart.length} color="primary">
+                        <Link to={"/cart"}><AiOutlineShoppingCart style={{ cursor: "pointer" }} /></Link>
+                    </Badge>
+                    <PrimaryButton title="Sign Out" methodCall={logOut} />
                 </div>
-                </Popover>
-                    <PrimaryButton title="Sign Out" methodCall={logOut}/>
-                </div>
-        </div>
-            
-            
-            )}
-
-
-    const WhenNotLoggedIn = (props)=>{
-        return(
-            <div className="header">
-            <img src="https://www.tailorbrands.com/wp-content/uploads/2020/07/mcdonalds-logo.jpg"/>
-            <div className="btn-containers">
-                <SecondaryButton title="Sign Up" methodCall={props.methodCall}/>
-                <PrimaryButton title="Sign In" methodCall={props.methodCall}/>
             </div>
-        </div>
+
+
         )
     }
-    return(
-        !state?<WhenNotLoggedIn methodCall={props.methodCall}/>:<WhenLoggedIn methodCall={props.methodCall}/>
+
+
+    const WhenNotLoggedIn = (props) => {
+        return (
+            <div className="header">
+                <img src="https://www.tailorbrands.com/wp-content/uploads/2020/07/mcdonalds-logo.jpg" />
+                <div className="btn-containers">
+                    <SecondaryButton title="Sign Up" methodCall={props.methodCall} />
+                    <PrimaryButton title="Sign In" methodCall={props.methodCall} />
+                </div>
+            </div>
+        )
+    }
+    return (
+        !state ? <WhenNotLoggedIn methodCall={props.methodCall} /> : <WhenLoggedIn methodCall={props.methodCall} />
     )
 }
 export default Header;

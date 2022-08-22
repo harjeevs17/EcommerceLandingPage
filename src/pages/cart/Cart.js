@@ -8,12 +8,17 @@ import Header from "../../layout/header/Header";
 
 const Cart = () => {
     const user = JSON.parse(localStorage.getItem("user"));
+    const { state, dispatch } = useContext(UserContext);
     const Item = styled(Paper)(({ theme }) => ({
         textAlign: 'center',
         height: "170px",
         boxShadow: "0px 0px 10px rgba(0,0,0,0)",
         margin: "10px"
     }));
+    const removeCart = (id) => {
+        dispatch({ type: "REMOVE_FROM_CART", payload: id })
+        localStorage.setItem("user", JSON.stringify(user));
+    }
     return (
         <>
             <Header />
@@ -28,7 +33,7 @@ const Cart = () => {
                                 <Item style={{ textAlign: "left" }}>{item.data.title}</Item>
                             </Grid>
                             <Grid sm={4} lg={2}>
-                                <Item><AiFillDelete /></Item>
+                                <Item><AiFillDelete onClick={removeCart(item.data._id)} /></Item>
                             </Grid>
                         </Grid>
                     )

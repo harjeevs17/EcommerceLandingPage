@@ -15,9 +15,14 @@ const Cart = () => {
         boxShadow: "0px 0px 10px rgba(0,0,0,0)",
         margin: "10px"
     }));
-    const removeCart = (id) => {
+    const removeCart = (event, id) => {
+        event.preventDefault()
+        console.log(id);
         dispatch({ type: "REMOVE_FROM_CART", payload: id })
-        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("user", JSON.stringify({
+            ...state,
+            cart: state.cart.filter((item) => item.data._id !== id)
+        }));
     }
     return (
         <>
@@ -33,7 +38,8 @@ const Cart = () => {
                                 <Item style={{ textAlign: "left" }}>{item.data.title}</Item>
                             </Grid>
                             <Grid sm={4} lg={2}>
-                                <Item><AiFillDelete onClick={removeCart(item.data._id)} /></Item>
+
+                                <button onClick={(e) => removeCart(e, item.data._id)}>Delete</button>
                             </Grid>
                         </Grid>
                     )

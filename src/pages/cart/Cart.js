@@ -3,7 +3,9 @@ import { Grid, Paper } from "@mui/material";
 import { Container } from "@mui/system";
 import { useContext, useEffect } from "react";
 import { AiFillDelete } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import { UserContext } from "../../App";
+import PrimaryButton from "../../components/form/buttons/PrimaryButton";
 import Header from "../../layout/header/Header";
 
 const Cart = () => {
@@ -25,7 +27,7 @@ const Cart = () => {
         }));
     }
     return (
-        <>
+        <div>
             <Header />
             <Container sx={{ mt: 10 }} container spacing={5} className="cartBox">
                 {user.cart.length > 0 ? user.cart.map((item, key) => {
@@ -38,14 +40,14 @@ const Cart = () => {
                                 <Item style={{ textAlign: "left" }}>{item.data.title}</Item>
                             </Grid>
                             <Grid sm={4} lg={2}>
-
                                 <button onClick={(e) => removeCart(e, item.data._id)}>Delete</button>
                             </Grid>
                         </Grid>
                     )
                 }) : ""}
+                <Link to={"/address"}><PrimaryButton title="Checkout" methodCall={() => { }} /></Link>
             </Container>
-        </>
+        </div>
     )
 }
 export default Cart;

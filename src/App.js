@@ -1,4 +1,4 @@
-import { Route, Router,Routes,BrowserRouter,useNavigate } from 'react-router-dom';
+import { Route, Router, Routes, BrowserRouter, useNavigate } from 'react-router-dom';
 import logo from './logo.svg';
 import Home from './pages/Home';
 import Onboarding from './pages/Onboarding';
@@ -8,8 +8,9 @@ import { createContext, useContext, useEffect, useReducer } from 'react';
 import Admin from './pages/admin/Admin';
 import ProductDetail from './pages/productDetail/ProductDetail';
 import Cart from './pages/cart/Cart';
+import Address from './pages/address/Address';
 export const UserContext = createContext();
-const Routing = ()=>{
+const Routing = () => {
   let history = useNavigate();
   const { state, dispatch } = useContext(UserContext);
   useEffect(() => {
@@ -24,12 +25,13 @@ const Routing = ()=>{
   }, [dispatch, history]);
   return (
     <Routes>
-          <Route  path="/" element={<Home/>} />
-          <Route  path="/signin" element={<Onboarding/>} />
-          <Route  path="/admin" element={<Admin/>} />
-          <Route  path="/cart" element={<Cart/>} />
-          <Route  path="/productDetail/:id" element={<ProductDetail/>} />
-      </Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/signin" element={<Onboarding />} />
+      <Route path="/admin" element={<Admin />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/address" element={<Address />} />
+      <Route path="/productDetail/:id" element={<ProductDetail />} />
+    </Routes>
   )
 }
 function App() {
@@ -37,7 +39,7 @@ function App() {
   return (
     <UserContext.Provider value={{ state: state, dispatch: dispatch }}>
       <BrowserRouter>
-          <Routing/>
+        <Routing />
       </BrowserRouter>
     </UserContext.Provider>
   );
